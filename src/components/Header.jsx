@@ -7,8 +7,10 @@ import './styles/header.css'
 
 const Header = () => {
     const [isExpanded, setIsExpanded] = useState(false)
+    const [shouldHideProfile, setShouldHideProfile] = useState(false)
     const containerRef = useRef(null)
     const iconsRef = useRef([])
+    const profileInfoRef = useRef(null)
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -24,19 +26,70 @@ const Header = () => {
     }, [])
 
     useEffect(() => {
+        const checkSpace = () => {
+            const screenWidth = window.innerWidth
+            let minRequiredWidth
+
+            if (screenWidth < 480) {
+                minRequiredWidth = 400
+            } else if (screenWidth < 768) {
+                minRequiredWidth = 500
+            } else {
+                minRequiredWidth = 600
+            }
+
+            const newShouldHide = screenWidth < minRequiredWidth && isExpanded
+
+            if (newShouldHide !== shouldHideProfile) {
+                setShouldHideProfile(newShouldHide)
+            }
+        }
+
+        checkSpace()
+        window.addEventListener('resize', checkSpace)
+        return () => window.removeEventListener('resize', checkSpace)
+    }, [isExpanded, shouldHideProfile])
+
+    useEffect(() => {
+        const profileInfo = profileInfoRef.current
+        if (profileInfo) {
+            gsap.to(profileInfo, {
+                opacity: shouldHideProfile ? 0 : 1,
+                duration: 0.4,
+                ease: "power2.out"
+            })
+        }
+    }, [shouldHideProfile])
+
+    useEffect(() => {
         const container = containerRef.current
         if (container) {
-            // Set initial width on first render
             if (!container.style.width) {
                 gsap.set(container, { width: "7rem", paddingLeft: "2.5rem", paddingRight: "2.5rem" })
             }
 
-            // Calculate target width for proper bounce
-            const targetWidth = isExpanded ? "16rem" : "7rem"
+            const screenWidth = window.innerWidth
+            let expandedWidth, collapsedPadding, expandedPadding
+
+            if (screenWidth < 480) {
+                expandedWidth = "12rem"
+                collapsedPadding = "2rem"
+                expandedPadding = "1.8rem"
+            } else if (screenWidth < 768) {
+                expandedWidth = "14rem"
+                collapsedPadding = "2.3rem"
+                expandedPadding = "1.9rem"
+            } else {
+                expandedWidth = "16rem"
+                collapsedPadding = "2.5rem"
+                expandedPadding = "2rem"
+            }
+
+            const targetWidth = isExpanded ? expandedWidth : "7rem"
 
             gsap.to(container, {
-                paddingLeft: isExpanded ? "2rem" : "2.5rem",
-                paddingRight: isExpanded ? "2rem" : "2.5rem",
+                paddingLeft: isExpanded ? expandedPadding : collapsedPadding,
+                paddingRight: isExpanded ? expandedPadding : collapsedPadding,
                 width: targetWidth,
                 duration: 0.7,
                 ease: "back.out(1.4)",
@@ -45,11 +98,12 @@ const Header = () => {
         }
     }, [isExpanded])
 
-    // Initialize container width on mount
     useEffect(() => {
         const container = containerRef.current
         if (container) {
-            gsap.set(container, { width: "7rem", paddingLeft: "2.5rem", paddingRight: "2.5rem" })
+            const screenWidth = window.innerWidth
+            let initialPadding = screenWidth < 480 ? "2rem" : screenWidth < 768 ? "2.3rem" : "2.5rem"
+            gsap.set(container, { width: "7rem", paddingLeft: initialPadding, paddingRight: initialPadding })
         }
     }, [])
 
@@ -148,7 +202,7 @@ const Header = () => {
         <header className="header">
             <div className='profile-container'>
                 <img src="/profile-picture.jpeg" className='profile-picture' alt="Julius Grimm Profile" />
-                <div className='profile-information'>
+                <div className='profile-information' ref={profileInfoRef}>
                     <div className='name'>Julius Grimm</div>
                     <div className='username'>@julius_gr_</div>
                 </div>
@@ -159,8 +213,6 @@ const Header = () => {
                 className='socials-container'
                 variants={containerVariants}
                 animate={isExpanded ? "expanded" : "collapsed"}
-                onMouseEnter={() => handleContainerHover(true)}
-                onMouseLeave={() => handleContainerHover(false)}
             >
                 <AnimatePresence>
                     {isExpanded && socialLinks.map((social, index) => (
