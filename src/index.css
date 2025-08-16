@@ -8,6 +8,7 @@
   --background-color: #FFF2E6;
   --container-color: #F3E4D5;
   --container-hover-color: #DBBFA4;
+  --container-blur-color: rgba(243, 228, 213, 0.7);
   --font-hover-color: #121210;
   --sub-font-color: #6D6965;
   --sub-font-hover-color: #474442;
@@ -76,14 +77,15 @@ body {
 }
 
 .content-container {
-  padding-top: 4rem;
+  padding-top: 4rem !important;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   width: 100%;
   max-width: 60rem;
-  min-width: 70vw;
+  min-width: 62vw;
   transition: padding 0.3s ease;
 }
 
@@ -97,6 +99,32 @@ body {
 @media (max-width: 480px) {
   .content-container {
     padding-top: 2rem;
-    min-width: 95vw;
+    padding: 1.5rem;
+    min-width: 95vw !important;
   }
+}
+
+.tag {
+  padding: 0.8rem 2.5rem;
+  border-radius: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  background-color: var(--container-color);
+  transition: background-color 0.3s ease;
+}
+
+.tag.link:hover {
+  background-color: var(--container-hover-color);
+
+  cursor: pointer;
+}
+
+.tagIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--font-color);
 }
