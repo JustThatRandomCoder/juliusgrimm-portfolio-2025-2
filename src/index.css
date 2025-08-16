@@ -128,3 +128,15 @@ body {
   height: 1.4rem;
   color: var(--font-color);
 }
+
+@media (max-width: 480px) {
+  .tag {
+    padding: 0.6rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .tagIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
