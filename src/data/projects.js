@@ -10,9 +10,9 @@ export const projects = [
             { type: "link", icon: "MdLanguage", text: "vibevote.de", url: "https://vibevote.de" }
         ],
         caseStudy: {
-            duration: "March 2024 - May 2024",
+            duration: "May 2024 - September 2024",
             tools: [
-                { name: "Figma", icon: "MdFormatShapes", link: "https://figma.com/your-project-link" },
+                { name: "Figma", icon: "MdFormatShapes", link: "https://www.figma.com/design/j1938zaam803Krt20GTrOI/vibeVoteRedesign?node-id=0-1&t=BWb0DfjqnmrJ3MGo-1" },
                 { name: "VS Code", icon: "MdCode" }
             ],
             stack: ["HTML", "CSS", "Python", "MongoDB", "Socket.io"],
@@ -115,7 +115,127 @@ export const projects = [
                             alt: "First Figma prototype of VibeVote"
                         },
                     ]
-                }
+                },
+                {
+                    title: "Development",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I built VibeVote completely on my own, using a lightweight and flexible tech stack. The frontend is done in plain HTML and CSS for simplicity and speed, with all UI designs created in Figma. On the backend, I used Python with Flask to handle routing, user sessions and form logic."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "MongoDB powers the database, allowing flexible storage for user accounts and individual song request collections. One technical challenge was building a secure login system with encrypted token handling, which I implemented from scratch."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "At each event (party) a unique QR code and poster are generated using a Python library. Guests scan the code, submit their song via a simple form and the request appears live on the DJ’s dashboard. Everything runs on a Flask web server and is hosted at vibevote.de"
+                        },
+                    ]
+                },
+                {
+                    title: "Challenges & Learnings",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "One of the biggest challenges I faced was implementing a secure login and signup system. I wanted to ensure user authentication was smooth but also secure. I implemented encrypted token handling and ensured the data integrity of individual party sessions and user requests."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Another interesting challenge was designing a system to manage and save the Songrequests in the database. I came up with a system where each user (i.e., DJ or party host) would get their own collection in the database. This meant dynamically creating and managing collections in MongoDB based on user sessions."
+                        }
+                    ]
+                },
+                {
+                    title: "Promotion & Marketing",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "To present VibeVote and to find the people looking for an appropriate solution, I focused on a few targeted channels. I created a dedicated Instagram account to share updates, features and behind-the-scenes looks at the project. To give it a stronger visual presence, I produced a short promo video and launched a VibeVote YouTube channel, showcasing how the platform works in a real party scenario."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "I also submitted the project to Product Hunt to reach a broader tech-savvy audience and gather feedback from early adopters. These efforts helped build initial visibility and brought the tool into the hands of DJs, organizers, and curious testers."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "The short promo video for VibeVote:"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "video",
+                            src: "../public/projects/vibevote/figures/figure4.mp4",
+                            alt: "VibeVote Promo Video"
+                        }
+                    ]
+                },
+                {
+                    title: "Outcome",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote turned a chaotic paper-based request system into a smooth digital experience. It’s now hosted live at vibevote.de and can be used at parties, school events, or even professional DJ gigs. It’s been a fun and challenging solo build — one that blends utility with a simple and intuitive user experience."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "The features I implemented in the final version are:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Easy set up of a Party for the DJ",
+                                "Generating and downloading a unique QR code among a poster",
+                                "Submitting song requests via a simple form and managing them in a live dashboard",
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "What I learned",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote was my first really big software project and because I handled everything on my own, I had to step into many different roles beyond just coding. I built the entire system from the ground up—frontend, backend, database, authentication—but also created the brand, produced a YouTube trailer and promoted it across platforms."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "This process was much more than just development. I got deeper into design thinking, product communication and even sound design while editing the promo video. It pushed me to learn how to tell a story around a product and present it in a way that is both clear and engaging."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Working across disciplines gave me a broader perspective on what it takes to build something real — and ship it."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Beyond the code, I also gained valuable experience in product thinking:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Designing for both DJs and guests (two different user groups)",
+                                "Breaking down complex features into simple, intuitive interactions",
+                                "Promoting a product effectively to reach the right audience",
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "Next Steps",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote will remain online and fully functional at vibevote.de, ready to be used at events and parties. However, I don't plan to add new features in the near future. Right now I'm building new projects and continue to grow my skills as a developer and designer."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "The project taught me a lot, and I’m proud of what it offers in its current state. While it may not go much for now, it stands as a complete and useful tool — and for me a milestone in my personal development journey."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "If you have any questions or want to know more about the project, feel free to contact me via mail or on my socials"
+                        },
+                    ]
+                },
             ]
         }
     },

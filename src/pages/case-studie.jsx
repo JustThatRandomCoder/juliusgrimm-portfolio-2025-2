@@ -113,11 +113,8 @@ const CaseStudie = () => {
                         <div key={index} className="case-study-media">
                             <video
                                 className="case-study-video"
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                preload="auto"
+                                controls
+                                preload="metadata"
                             >
                                 <source src={contentItem.src} type="video/mp4" />
                             </video>
