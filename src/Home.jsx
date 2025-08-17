@@ -4,11 +4,13 @@ import { MdInfoOutline, MdLanguage, MdFastRewind, MdFastForward, MdCode, MdForma
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { projects } from './data/projects'
+import { useNavigate } from 'react-router-dom'
 
 
 const Home = () => {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
     const currentProject = projects[currentProjectIndex]
+    const navigate = useNavigate()
 
     const getIcon = (iconName) => {
         const iconMap = {
@@ -20,7 +22,7 @@ const Home = () => {
 
     const handleTagClick = (tag) => {
         if (tag.type === 'info') {
-            console.log(`Navigate to: /case-study/${currentProject.name.toLowerCase()}`)
+            navigate(`/case-study/${currentProject.name.toLowerCase()}`)
         } else if (tag.type === 'link' && tag.url) {
             window.open(tag.url, '_blank')
         }

@@ -15,15 +15,9 @@ export const projects = [
                 { name: "Figma", icon: "MdFormatShapes", link: "https://figma.com/your-project-link" },
                 { name: "VS Code", icon: "MdCode" }
             ],
-            github: {
-                url: "https://github.com/yourusername/vibevote",
-                icon: "MdGithub"
-            },
-            stack: ["React", "Node.js", "MongoDB", "Socket.io"],
+            stack: ["HTML", "CSS", "Python", "MongoDB", "Socket.io"],
             description: [
-                "VibeVote revolutionizes how DJs interact with their audience by creating a seamless song request experience.",
-                "The platform allows party-goers to submit song requests in real-time, while giving DJs complete control over their playlist and crowd engagement.",
-                "Built with modern web technologies, VibeVote bridges the gap between DJs and their audience, creating more interactive and memorable events."
+                "VibeVote is a digital tool that allows DJs and event organizers to easily collect and manage song requests. Each event gets a unique QR code. Every guests can theirfore submit their song requests directly from their phones. These requests then appear live on a dashboard tailored for DJs, making it seamless to interact with the crowd’s vibe."
             ],
             sections: [
                 {
@@ -31,67 +25,95 @@ export const projects = [
                     content: [
                         {
                             type: "paragraph",
-                            text: "The concept for VibeVote emerged from observing the disconnect between DJs and their audience at events."
+                            text: "The inspiration for VibeVote came during a school event I helped to organize as part of my schools tech team."
                         },
                         {
                             type: "paragraph",
-                            text: "Traditional methods of song requests were often chaotic and inefficient, leading to frustrated party-goers and overwhelmed DJs."
+                            text: "We were hosting a party for students and to keep the music engaging, we allowed guests to request songs, using pen and paper. That quickly turned chaotic. People scribbled illegibly, requests got lost and the list was hard to manage."
+                        },
+                        {
+                            type: "indent",
+                            text: "I thought: Why not bring this online?"
+                        },
+
+                    ]
+                },
+                {
+                    title: "Research & Insights",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "Before starting development, I explored how song requests were typically handled at events, especially in smaller or more casual settings like school parties. My own experience at a school event highlighted how messy and inefficient paper-based systems were — but I also wanted to see what digital alternatives existed."
+                        },
+                        {
+                            type: "indent",
+                            text: "Existing tools were overly complex: Some platforms did offer song request features, but they were often part of large, bloated DJ software ecosystems or required guests to download apps, create accounts, or navigate through unintuitive interfaces. For quick, casual parties, these were simply an overkill."
+                        },
+                        {
+                            type: "indent",
+                            text: "Not optimized for guests: Many tools were DJ-focused, not guest-friendly. The barrier to entry (e.g. signing up or downloading something) turned people down from using these devices altogether."
+                        },
+                        {
+                            type: "indent",
+                            text: "No instant setup: Most platforms didn’t offer a way to quickly set up a party, generate a shareable link or QR code and just start collecting requests. I wanted something that worked right out of the box—no tech skills required."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "From this research, the core values of VibeVote became clear: no downloads, no signups, just request and done!"
+                        },
+
+                    ]
+                },
+                {
+                    title: "Ideation & Wireframing",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I had to break down the whole idea and ask myself: What are the core features I need to build? I started with a simple sketch on paper, outlining the main components of the app."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "I then moved to Figma to create a more detailed wireframe, focusing on user friendly and intuitive desing."
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/vibevote/idea-sketch.jpg",
-                            alt: "Initial concept sketches"
+                            src: "../public/projects/vibevote/figures/figure1.png",
+                            alt: "Final Figma Sketch of VibeVote"
                         },
                         {
-                            type: "bullets",
-                            items: [
-                                "Problem: DJs couldn't effectively manage song requests",
-                                "Solution: Create a digital platform for organized requests",
-                                "Goal: Enhance the party experience for everyone involved"
-                            ]
-                        },
-                        {
-                            type: "indent",
-                            text: "This indented paragraph provides additional context or a detailed explanation that supports the main content above. It's visually separated to show hierarchy and relationship to the parent content."
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/vibevote/figures/figure2.png",
+                            alt: "Close up of the features of VibeVote"
                         }
                     ]
                 },
                 {
-                    title: "Design Process",
+                    title: "First Prototype",
                     content: [
                         {
                             type: "paragraph",
-                            text: "The design phase focused on creating an intuitive interface for both DJs and party-goers."
+                            text: "After sketching out the initial idea, I created a simple Figma Prototype, showing what the Application should look like and how I imagined it to work like."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Key features I fully developed in Figma:"
                         },
                         {
                             type: "bullets",
                             items: [
-                                "User research with professional DJs",
-                                "Wireframing and prototyping",
-                                "Usability testing with target audience"
+                                "Login screen for the DJ",
+                                "DJ dashboard with covers to manage song requests",
+                                "Generating and downloading unique Posters with QR codes for each event",
                             ]
                         },
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "../public/projects/vibevote/design-process.mp4",
-                            alt: "Design process walkthrough"
+                            src: "../public/projects/vibevote/figures/figure3.mp4",
+                            alt: "First Figma prototype of VibeVote"
                         },
-                        {
-                            type: "paragraph",
-                            text: "The final design emphasizes simplicity and real-time feedback."
-                        },
-                        {
-                            type: "indent",
-                            text: "User testing revealed that the simplified interface increased user engagement by 40% compared to traditional request methods."
-                        },
-                        {
-                            type: "media",
-                            mediaType: "image",
-                            src: "../public/projects/vibevote/wireframes.jpg",
-                            alt: "Application wireframes"
-                        }
                     ]
                 }
             ]
