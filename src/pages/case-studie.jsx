@@ -5,10 +5,20 @@ import { projects } from '../data/projects'
 import { MdCalendarToday, MdCode, MdFormatShapes, MdLanguage } from 'react-icons/md'
 import { FaGithub } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 const CaseStudie = () => {
     const { projectName } = useParams()
     const project = projects.find(p => p.name.toLowerCase() === projectName?.toLowerCase())
+    const [showcaseLoaded, setShowcaseLoaded] = useState(false)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowcaseLoaded(true)
+        }, 3000)
+
+        return () => clearTimeout(timer)
+    }, [project.id])
 
     if (!project) {
         return (
@@ -100,31 +110,117 @@ const CaseStudie = () => {
             case 'media':
                 if (contentItem.mediaType === 'image') {
                     return (
-                        <div key={index} className="case-study-media">
-                            <img
-                                src={contentItem.src}
-                                alt={contentItem.alt}
-                                className="case-study-image"
-                            />
-                        </div>
+                        <MediaWithSkeleton
+                            key={index}
+                            type="image"
+                            src={contentItem.src}
+                            alt={contentItem.alt}
+                        />
                     )
                 } else if (contentItem.mediaType === 'video') {
                     return (
-                        <div key={index} className="case-study-media">
-                            <video
-                                className="case-study-video"
-                                controls
-                                preload="metadata"
-                            >
-                                <source src={contentItem.src} type="video/mp4" />
-                            </video>
-                        </div>
+                        <MediaWithSkeleton
+                            key={index}
+                            type="video"
+                            src={contentItem.src}
+                            alt={contentItem.alt}
+                        />
                     )
                 }
                 break
 
             default:
                 return null
+        }
+    }
+
+    const MediaWithSkeleton = ({ type, src, alt }) => {
+        const [isLoaded, setIsLoaded] = useState(false)
+        const [hasError, setHasError] = useState(false)
+
+        const handleLoad = () => {
+            setIsLoaded(true)
+        }
+
+        const handleError = () => {
+            setHasError(true)
+            setIsLoaded(true)
+        }
+
+        useEffect(() => {
+            const timer = setTimeout(() => {
+                if (!isLoaded && !hasError) {
+                    setIsLoaded(true)
+                }
+            }, 3000)
+
+            return () => clearTimeout(timer)
+        }, [isLoaded, hasError])
+
+        if (type === 'image') {
+            return (
+                <div className="case-study-media">
+                    {!isLoaded && !hasError && (
+                        <div className="skeleton-image">
+                            <div className="skeleton"></div>
+                        </div>
+                    )}
+                    <img
+                        src={src}
+                        alt={alt}
+                        className="case-study-image"
+                        onLoad={handleLoad}
+                        onError={handleError}
+                        style={{ display: isLoaded ? 'block' : 'none' }}
+                    />
+                    {hasError && (
+                        <div className="skeleton-image" style={{ backgroundColor: 'var(--container-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <span style={{ color: 'var(--sub-font-color)' }}>Failed to load image</span>
+                        </div>
+                    )}
+                </div>
+            )
+        } else if (type === 'video') {
+            return (
+                <div className="case-study-media">
+                    {!isLoaded && !hasError && (
+                        <div className="skeleton-video">
+                            <div className="skeleton"></div>
+                        </div>
+                    )}
+                    <video
+                        className="case-study-video"
+                        controls
+                        preload="metadata"
+                        poster={src.replace('.mp4', '-thumbnail.jpg')}
+                        onLoadedMetadata={handleLoad}
+                        onCanPlay={handleLoad}
+                        onError={handleError}
+                        style={{ display: isLoaded ? 'block' : 'none' }}
+                    >
+                        <source src={src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    {hasError && (
+                        <div className="skeleton-video" style={{ position: 'relative' }}>
+                            <div style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: 'var(--container-color)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: '15px'
+                            }}>
+                                <span style={{ color: 'var(--sub-font-color)' }}>Failed to load video</span>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )
         }
     }
 
@@ -151,19 +247,23 @@ const CaseStudie = () => {
                     <div className='project-links'>
                         {project.tags
                             .filter(tag => tag.type === 'link')
-                            .map((linkTag, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="tag link externalLink"
-                                    variants={tagVariants}
-                                    whileHover="hover"
-                                    whileTap="tap"
-                                    onClick={() => window.open(linkTag.url, '_blank')}
-                                >
-                                    <MdLanguage className="tagIcon" />
-                                    <span>{linkTag.text}</span>
-                                </motion.div>
-                            ))}
+                            .map((linkTag, index) => {
+                                const hasUrl = linkTag.url
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        className={`tag ${hasUrl ? 'link externalLink' : 'disabled'}`}
+                                        variants={tagVariants}
+                                        whileHover={hasUrl ? "hover" : {}}
+                                        whileTap={hasUrl ? "tap" : {}}
+                                        onClick={() => hasUrl ? window.open(linkTag.url, '_blank') : null}
+                                        style={{ cursor: hasUrl ? 'pointer' : 'default' }}
+                                    >
+                                        <MdLanguage className="tagIcon" />
+                                        <span>{linkTag.text}</span>
+                                    </motion.div>
+                                )
+                            })}
                     </div>
                 </motion.div>
 
@@ -172,7 +272,20 @@ const CaseStudie = () => {
                         <div className="project-showcase-container">
                             <div className='project-showcase-container-inner'>
                                 <div className="project-showcase">
-                                    <video autoPlay muted loop playsInline preload="auto">
+                                    {!showcaseLoaded && (
+                                        <div className="skeleton" style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1 }}></div>
+                                    )}
+                                    <video
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        preload="metadata"
+                                        poster={project.video.replace('.mp4', '-thumbnail.jpg')}
+                                        onLoadedMetadata={() => setShowcaseLoaded(true)}
+                                        onCanPlay={() => setShowcaseLoaded(true)}
+                                        style={{ position: 'relative', zIndex: 2 }}
+                                    >
                                         <source src={project.video} type="video/mp4" />
                                     </video>
                                 </div>

@@ -247,12 +247,12 @@ export const projects = [
         video: "../public/projects/festifly/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
-            { type: "link", icon: "MdLanguage", text: "festifly.de", url: "https://festifly.de" }
+            { type: "link", icon: "MdLanguage", text: "Currently Offline" }
         ],
         caseStudy: {
             duration: "September 2024 - April 2025",
             tools: [
-                { name: "Figma", icon: "MdFormatShapes", link: "https://figma.com/festifly-project" },
+                { name: "Figma", icon: "MdFormatShapes", link: "https://www.figma.com/design/lRYgfX8UyjW5NuXghUjkg4/FestiFly?node-id=0-1&t=7lq6k2x8kDVANpPr-1" },
                 { name: "VS Code", icon: "MdCode" }
             ],
             stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Google Places API"],
@@ -316,7 +316,7 @@ export const projects = [
                     content: [
                         {
                             type: "paragraph",
-                            text: "I developed a colorful, clean UI using a consistent design system in Tailwind CSS. Animations were built from the start with Framer Motion and GSAP, creating smooth transitions and dynamic effects that made the product feel responsive and alive.."
+                            text: "I developed a colorful, clean UI using a consistent design system in Tailwind CSS. Animations were built from the start with Framer Motion and GSAP, creating smooth transitions and dynamic effects that made the product feel responsive and alive."
                         },
                         {
                             type: "media",

@@ -2,13 +2,16 @@ import './styles/home.css'
 import Header from './components/Header'
 import { MdInfoOutline, MdLanguage, MdFastRewind, MdFastForward, MdCode, MdFormatShapes } from 'react-icons/md'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { projects } from './data/projects'
 import { useNavigate } from 'react-router-dom'
 
 
 const Home = () => {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
+    const [homeShowcaseLoaded, setHomeShowcaseLoaded] = useState(false)
+    const [videoProgress, setVideoProgress] = useState(30)
+    const videoRef = useRef(null)
     const currentProject = projects[currentProjectIndex]
     const navigate = useNavigate()
 
@@ -32,12 +35,30 @@ const Home = () => {
         setCurrentProjectIndex((prev) =>
             prev === 0 ? projects.length - 1 : prev - 1
         )
+        setHomeShowcaseLoaded(false)
+        setVideoProgress(30)
     }
 
     const handleNextProject = () => {
         setCurrentProjectIndex((prev) =>
             prev === projects.length - 1 ? 0 : prev + 1
         )
+        setHomeShowcaseLoaded(false)
+        setVideoProgress(30)
+    }
+
+    const handleVideoTimeUpdate = () => {
+        if (videoRef.current) {
+            const progress = (videoRef.current.currentTime / videoRef.current.duration) * 100
+            const adjustedProgress = 30 + (progress * 0.7)
+            setVideoProgress(adjustedProgress || 30)
+        }
+    }
+
+    const handleDotClick = (index) => {
+        setCurrentProjectIndex(index)
+        setHomeShowcaseLoaded(false)
+        setVideoProgress(30)
     }
 
     const projectVariants = {
@@ -90,18 +111,21 @@ const Home = () => {
                         <div className="project-links">
                             {currentProject.tags.map((tag, index) => {
                                 const IconComponent = getIcon(tag.icon)
+                                const hasUrl = tag.type === 'link' && tag.url
+                                const isClickable = tag.type === 'info' || hasUrl
                                 return (
                                     <motion.div
                                         key={index}
-                                        className="tag link"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
+                                        className={`tag ${isClickable ? 'link' : 'disabled'}`}
+                                        whileHover={isClickable ? { scale: 1.05 } : {}}
+                                        whileTap={isClickable ? { scale: 0.95 } : {}}
                                         transition={{
                                             type: "spring",
                                             stiffness: 400,
                                             damping: 17
                                         }}
-                                        onClick={() => handleTagClick(tag)}
+                                        onClick={() => isClickable ? handleTagClick(tag) : null}
+                                        style={{ cursor: isClickable ? 'pointer' : 'default' }}
                                     >
                                         <IconComponent className='tagIcon' />
                                         {tag.text && <span>{tag.text}</span>}
@@ -153,12 +177,46 @@ const Home = () => {
                                 exit="exit"
                                 transition={transition}
                             >
-                                <video autoPlay muted loop playsInline preload="auto">
+                                <video
+                                    ref={videoRef}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="auto"
+                                    onTimeUpdate={handleVideoTimeUpdate}
+                                    onLoadedData={() => setVideoProgress(0)}
+                                >
                                     <source src={currentProject.video} type="video/mp4" />
                                 </video>
                             </motion.div>
                         </AnimatePresence>
                     </div>
+                </div>
+                <div className="project-indicators">
+                    {projects.map((_, index) => (
+                        <motion.div
+                            key={index}
+                            className={`project-indicator ${index === currentProjectIndex ? 'active' : ''}`}
+                            onClick={() => handleDotClick(index)}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 17
+                            }}
+                        >
+                            {index === currentProjectIndex && (
+                                <motion.div
+                                    className="project-indicator-progress"
+                                    initial={{ width: "0%" }}
+                                    animate={{ width: `${videoProgress}%` }}
+                                    transition={{ duration: 0.1, ease: "linear" }}
+                                />
+                            )}
+                        </motion.div>
+                    ))}
                 </div>
             </section>
             <section className="skills-section">
