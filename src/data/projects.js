@@ -247,79 +247,181 @@ export const projects = [
         video: "../public/projects/festifly/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
-            { type: "link", icon: "MdLanguage", text: "festifly.ai", url: "https://festifly.ai" }
+            { type: "link", icon: "MdLanguage", text: "festifly.de", url: "https://festifly.de" }
         ],
         caseStudy: {
-            duration: "January 2024 - April 2024",
+            duration: "September 2024 - April 2025",
             tools: [
                 { name: "Figma", icon: "MdFormatShapes", link: "https://figma.com/festifly-project" },
                 { name: "VS Code", icon: "MdCode" }
             ],
-            stack: ["React", "Python", "OpenAI API", "PostgreSQL"],
+            stack: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Google Places API"],
             description: [
-                "FestiFly harnesses the power of artificial intelligence to revolutionize event planning and management.",
-                "The platform uses advanced AI algorithms to automate complex event logistics, from venue selection to guest management and catering coordination.",
-                "Built for event professionals and organizations, FestiFly reduces planning time by 70% while ensuring every detail is perfectly orchestrated."
+                "FestiFly is a modern web app that aimed to streamline event planning for young people through intuitive design and smart automation. We decided not to continue development after completing the frontend. However during the project we gained valuable lessons in product design, team collaboration and user-centered thinking.",
             ],
             sections: [
                 {
-                    title: "Problem Statement",
+                    title: "The Problem",
                     content: [
                         {
                             type: "paragraph",
-                            text: "Event planning is notoriously complex and time-consuming, often requiring coordination of multiple vendors, venues, and stakeholders."
+                            text: "Planning events is often chaotic and fragmented, especially for young people. Existing tools are either too complex or lack modern, user-friendly designs. FestiFly set out to solve this by creating an intuitive, all-in-one platform. To achieve that organizing events becomes effortless and enjoyable."
                         },
+                    ]
+                },
+                {
+                    title: "Research & Insights",
+                    content: [
                         {
                             type: "paragraph",
-                            text: "Traditional event planning methods rely heavily on manual processes, leading to errors and inefficiencies."
-                        },
-                        {
-                            type: "media",
-                            mediaType: "image",
-                            src: "../public/projects/festifly/problem-analysis.jpg",
-                            alt: "Event planning challenges analysis"
+                            text: "We talked to potential users and explored competing products. Key insights:"
                         },
                         {
                             type: "bullets",
                             items: [
-                                "Challenge: Overwhelming amount of coordination required",
-                                "Pain Point: Lack of centralized communication",
-                                "Opportunity: Leverage AI to automate repetitive tasks"
+                                "Event planning is often chaotic and fragmented, especially for young people.",
+                                "Existing tools are either too complex or lack modern, user-friendly designs.",
+                                "FestiFly set out to solve this by creating an intuitive, all-in-one platform."
                             ]
                         },
                         {
                             type: "indent",
-                            text: "Research conducted with 50+ event planners revealed that 80% of their time was spent on repetitive coordination tasks that could be automated."
+                            text: "Therefore we focused on three main design goals: simplicity, speed, and individuality."
                         }
                     ]
                 },
                 {
-                    title: "AI Implementation",
+                    title: "Research & Insights",
                     content: [
                         {
                             type: "paragraph",
-                            text: "The core of FestiFly lies in its sophisticated AI engine that learns from event patterns and user preferences."
+                            text: "I created initial low-fidelity wireframes in Figma, exploring different flows for onboarding, event creation and user collaboration."
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/festifly/figures/figure1.png",
+                            alt: "First Figma Sketch of FestiFly"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/festifly/figures/figure2.png",
+                            alt: "First concept of the website"
+                        }
+                    ]
+                },
+                {
+                    title: "Design & Prototyping",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I developed a colorful, clean UI using a consistent design system in Tailwind CSS. Animations were built from the start with Framer Motion and GSAP, creating smooth transitions and dynamic effects that made the product feel responsive and alive.."
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/festifly/figures/figure3.png",
+                            alt: "First Figma Sketch of FestiFly"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/festifly/figures/figure4.png",
+                            alt: "First concept of the website"
                         },
                         {
                             type: "paragraph",
-                            text: "The system uses machine learning to predict optimal event configurations and automate vendor selection."
+                            text: "Key features I fully developed in Figma:"
                         },
                         {
                             type: "bullets",
                             items: [
-                                "Natural language processing for event requirement analysis",
-                                "Predictive algorithms for budget optimization",
-                                "Automated scheduling and conflict resolution"
+                                "Creating events with a few clicks, including sending invites",
+                                "Selecting the service providers and locations",
+                                "Managing the event with services like a shared photo album"
                             ]
                         },
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "../public/projects/festifly/ai-demo.mp4",
-                            alt: "AI features demonstration"
+                            src: "../public/projects/festifly/showcase.mp4",
+                            alt: "Final Prototype of Festifly"
                         }
                     ]
-                }
+                },
+                {
+                    title: "Development",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I built the full frontend in TypeScript with React and Vite. Styling was done with Tailwind CSS and animations were handled using GSAP and Framer Motion. My teammate focused on backend logic in Node.js, while I focused on user flows, visual design and responsiveness."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "We used GitHubfor version control and collaboration, ensuring smooth integration of our work."
+                        },
+                    ]
+                },
+                {
+                    title: "Outcome",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "Although we successfully completed the Figma sketches and parts of the Frontend, we decided to stop short of a full development. Building and maintaining a production-ready backend with AI features would have exceeded our current budget and time resources."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Still, the project was a major success in terms of:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Skill development",
+                                "Team collaboration",
+                                "User-first thnking and design principles"
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "What I learned",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I enjoyed the process of creating a product from scratch, from ideation to design and development. I learned valuable skills and I cloud furhter improve my design and coding abilities. I also learned how to work in a group, communicate effectively and manage my time and resources. I did better understand to what extent, building and handling big software projects is a complex task that requires a lot of planning, testing, and iteration."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "...but in a nutshell, I learned:"
+                        },
+                        {
+                            type: "indent",
+                            text: "Designing from wireframes to final animations taught me how to create consistent, engaging UI experiences."
+                        },
+                        {
+                            type: "indent",
+                            text: "Working with animation libraries like GSAP requires detailed planning to maintain performance and code readability."
+                        },
+                        {
+                            type: "indent",
+                            text: "Real-world product scope often changes."
+                        },
+                    ]
+                },
+                {
+                    title: "Next Steps",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "While FestiFly won’t be launched publicly, the knowledge and components we created are already being used in our new projects. I plan to reuse parts of the design system and UI logic in upcoming apps."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "If you have any questions or want to know more about the project, feel free to cantact me via mailor on my socials"
+                        }
+                    ]
+                },
             ]
         }
     },
@@ -334,92 +436,227 @@ export const projects = [
             { type: "link", icon: "MdLanguage", text: "skyview.juliusgrimm.dev", url: "https://skyview.juliusgrimm.dev" }
         ],
         caseStudy: {
-            duration: "June 2024 - July 2024",
+            duration: "14 July 2024 - 16 July 2024",
             tools: [
-                { name: "Figma", icon: "MdFormatShapes", link: "https://figma.com/skyview-design" },
+                { name: "Figma", icon: "MdFormatShapes" },
                 { name: "VS Code", icon: "MdCode" }
             ],
             github: {
-                url: "https://github.com/yourusername/skyview",
+                url: "https://github.com/justthatrandomcoder/skyview",
                 icon: "MdGithub"
             },
-            stack: ["React Native", "TypeScript", "Weather API"],
+            stack: ["HTML", "CSS", "JavaScript", "Python", "OpenWeatherMap API"],
             description: [
-                "SkyView reimagines weather applications with a focus on beautiful design and intuitive user experience.",
-                "The app goes beyond basic weather information to provide contextual insights and personalized recommendations based on weather conditions.",
-                "As an open-source project, SkyView demonstrates how thoughtful design can transform everyday utility apps into delightful experiences."
+                "SkyView is a fast, no-tracking, open-source weather app created for a mini-hackathon hosted by YouTuber @Kevin Chromik. The challenge: Build something useful using the OpenWeatherMap API in the duration of a weekend.",
+                "I decided to build a tool that respects user privacy, doesn’t track data and still looks great across devices — all within a 48-hour sprint.",
             ],
             sections: [
                 {
-                    title: "Design Philosophy",
+                    title: "The Idea",
                     content: [
                         {
                             type: "paragraph",
-                            text: "The design of SkyView was driven by the principle that weather information should be both beautiful and functional."
+                            text: "Many weather apps are overloaded with ads, require GPS permissions, or ask users to sign up. Why can’t checking the weather just be… simple?"
                         },
                         {
                             type: "paragraph",
-                            text: "Every visual element was carefully crafted to convey weather conditions intuitively, using color, typography, and animation."
-                        },
-                        {
-                            type: "media",
-                            mediaType: "image",
-                            src: "../public/projects/skyview/design-system.jpg",
-                            alt: "Design system and color schemes"
+                            text: "Inspired by minimalist tools and the hackathon’s tight time constraint, I set out to make a clean, open-source weather app that:"
                         },
                         {
                             type: "bullets",
                             items: [
-                                "Minimalist interface design",
-                                "Contextual color schemes based on weather",
-                                "Smooth animations and micro-interactions"
+                                "Requires no login",
+                                "Doesn’t track the user",
+                                "Looks good on mobile and desktop"
                             ]
-                        },
-                        {
-                            type: "indent",
-                            text: "The color system dynamically adapts based on weather conditions - warm oranges for sunny days, cool blues for rainy weather, creating an emotional connection with the current conditions."
-                        },
-                        {
-                            type: "media",
-                            mediaType: "video",
-                            src: "../public/projects/skyview/animations.mp4",
-                            alt: "App animations showcase"
-                        },
-                        {
-                            type: "paragraph",
-                            text: "The goal was to create an app that users would enjoy opening, regardless of the weather outside."
                         }
                     ]
                 },
                 {
-                    title: "Technical Implementation",
+                    title: "Hackathon Context",
                     content: [
                         {
                             type: "paragraph",
-                            text: "SkyView was built using React Native to ensure cross-platform compatibility while maintaining native performance."
+                            text: "This project was built as part of a community mini-hackathon hosted by Kevin Chromik — a developer-focused creator on YouTube. The challenge was to build anything using the OpenWeatherMap API in just a couple of days."
                         },
                         {
                             type: "paragraph",
-                            text: "The app integrates with multiple weather APIs to provide accurate and comprehensive weather data."
+                            text: "My goal was to create something that felt complete, polished, and immediately usable — not just a prototype."
+                        },
+                    ]
+                },
+                {
+                    title: "Research & Planning",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I looked at popular weather apps and found three recurring problems:"
+                        },
+                        {
+                            type: "indent",
+                            text: "Privacy Invasion – Forced location permissions and tracking."
+                        },
+                        {
+                            type: "indent",
+                            text: "Cluttered UIs – Weather data buried under ads and widgets."
+                        },
+                        {
+                            type: "indent",
+                            text: "Slow Performance – Overuse of JavaScript frameworks slowed things down."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "I decided to go in the opposite direction: Fast. Clean. Anonymous. Useful."
+                        },
+                    ]
+                },
+                {
+                    title: "Ideation & Wireframing",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "With just 48 hours, I sketched the key screens on paper first, then quickly moved into Figma to visualize the layout. I focused on:"
                         },
                         {
                             type: "bullets",
                             items: [
-                                "Cross-platform mobile development",
-                                "Real-time weather data integration",
-                                "Offline caching for reliable access"
+                                "Large, readable weather data",
+                                "Minimal input (just a city name)",
+                                "Responsive layout that works equally well on phones and desktops"
                             ]
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/skyview/architecture.jpg",
-                            alt: "Application architecture diagram"
+                            src: "../public/projects/skyview/figures/figure1.png",
+                            alt: "Final Figma Sketch of SkyView"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/skyview/figures/figure2.png",
+                            alt: "Final App"
+                        }
+                    ]
+                },
+                {
+                    title: "Development",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "SkyView was built with simplicity and speed in mind, both in terms of user experience and development approach. I used Python with Flask as the backend framework to handle routing and API requests to OpenWeatherMap, while the frontend was kept intentionally lightweight using HTML, CSS and JavaScript."
                         },
                         {
                             type: "paragraph",
-                            text: "The technical architecture prioritizes performance and reliability, ensuring users always have access to weather information when they need it."
+                            text: "The core functionality revolves around a user input field where anyone can type in a city name. This triggers a call to the OpenWeatherMap API and the relevant weather data — temperature, description, humidity, wind speed and more — is displayed instantly on the page."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "To ensure the app respects privacy, I deliberately avoided any kind of location tracking, cookie usage or analytics scripts. All requests are initiated manually by the user, and no data is stored or logged in the backend."
+                        },
+                    ]
+                },
+                {
+                    title: "Challenges",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "One of the biggest challenges during the development of SkyView was working with the OpenWeatherMap API under a tight time constraint. While the API is powerful, its documentation is fairly extensive and understanding the exact structure of the data response took more time than expected — especially in a fast-paced hackathon setting."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "At first, I struggled to filter out only the essential information (like temperature, description, and wind speed) without getting lost in the broader documentation. Parsing nested JSON responses and mapping them cleanly into the frontend required extra attention."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "However, once I got familiar with the API’s structure, things started to get real. I was able to build a functional integration that reliably fetched and displayed the right weather data for any city and I even added proper error handling for invalid inputs or failed requests."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "This challenge taught me how to quickly navigate documentation, identify what’s truly important and make something work under pressure—all valuable lessons for future API-driven projects."
+                        },
+                    ]
+                },
+                {
+                    title: "Presentation",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "To showcase SkyView to other participants at the end of the hackathon, I created a simple promo poster and a short video demo. The poster highlighted the app’s key features and clean interface, while the video walked viewers through the core functionality — from entering a city to getting real-time weather data."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "This quick presentation helped communicate the app’s purpose clearly and gave it a more polished, product-like feel despite the short development window."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "This Image shows the poster for the presentation:"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/skyview/figures/figure3.png",
+                            alt: "Poster for presenting SkyView"
                         }
+                    ]
+                },
+                {
+                    title: "Outcome",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "SkyView successfully delivered on its goal: a clean, privacy - focused weather app built in under 48 hours. Despite the time constraints, it turned into a fully functional tool with a smooth user experience and a clear purpose. The feedback from other participants was positive, especially around the simplicity and visual design. While it’s a small project, it serves as a complete example of what can be achieved in a short, focused sprint."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "The Features I implemeted in the final version are:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Functional landing page",
+                                "48-hour weather forecast",
+                                "Responsive and clean design"
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "What I learned",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "This mini-hackathon was my first ever hackathon and needing to complete a full project in just 48 hours was a great learning experience. It challenged me to make fast, focused decisions and balance both design and development under pressure. SkyView specifically taught me how to quickly navigate and work with a large API under tight time pressure. Understanding the OpenWeatherMap structure, pulling only what I needed and turning it into something usable was a valuable hands-on experience."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Beyond the technical side, the project pushed me to build, document and present a complete app — all within a weekend. It was a crash course in fast-paced development and clear communication."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "summarizing the experience, I learned a lot about:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Efficiently working with large, unfamiliar APIs",
+                                "Building and shipping a functional project on a deadline",
+                                "Presenting ideas clearly through visuals and demos"
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "Next Steps",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "SkyView will remain available on GitHub as an open-source project, showcasing both the idea and the execution. I don’t plan to add new features for now, as the hackathon challenge has been completed — but the project stands as a finished, usable app and a personal milestone in rapid prototyping and clean design"
+                        },
+                        {
+                            type: "paragraph",
+                            text: "If you have any questions or want to know more about the project, feel free to contact me via mailor on my socials"
+                        },
                     ]
                 }
             ]
