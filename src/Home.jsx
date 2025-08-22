@@ -11,9 +11,25 @@ const Home = () => {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
     const [homeShowcaseLoaded, setHomeShowcaseLoaded] = useState(false)
     const [videoProgress, setVideoProgress] = useState(10)
+    const [lastUpdate, setLastUpdate] = useState('...')
     const videoRef = useRef(null)
     const currentProject = projects[currentProjectIndex]
     const navigate = useNavigate()
+    useEffect(() => {
+        fetch('https://api.github.com/repos/JustThatRandomCoder/juliusgrimm-portfolio-2025-2/commits?per_page=1')
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    const dateStr = data[0].commit.committer.date
+                    const dateObj = new Date(dateStr)
+                    const day = dateObj.getDate()
+                    const month = dateObj.toLocaleString('default', { month: 'long' })
+                    const year = dateObj.getFullYear()
+                    setLastUpdate(`${day} ${month} ${year}`)
+                }
+            })
+            .catch(() => setLastUpdate('Unknown'))
+    }, [])
 
     const getIcon = (iconName) => {
         const iconMap = {
@@ -291,7 +307,7 @@ const Home = () => {
                         <MdCalendarMonth className='tagIcon' />
                         <div>
                             <span>Last Update: </span>
-                            <span>March 2025</span>
+                            <span>{lastUpdate}</span>
                         </div>
                     </div>
                     <div className='tag'>
@@ -308,7 +324,7 @@ const Home = () => {
                             damping: 17
                         }}
                         onClick={() => {
-                            const duration = 500; // 
+                            const duration = 500;
                             const start = window.scrollY;
                             const startTime = performance.now();
                             function scrollStep(currentTime) {
