@@ -325,10 +325,12 @@
 
     .case-study-left {
         gap: 1.5rem;
+        width: 100%;
     }
 
     .case-study-right {
         gap: 1.5rem;
+        width: 100%;
     }
 
     .case-study-tags {
