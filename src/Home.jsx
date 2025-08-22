@@ -1,6 +1,6 @@
 import './styles/home.css'
 import Header from './components/Header'
-import { MdInfoOutline, MdLanguage, MdFastRewind, MdFastForward, MdCode, MdFormatShapes } from 'react-icons/md'
+import { MdInfoOutline, MdLanguage, MdFastRewind, MdFastForward, MdCode, MdFormatShapes, MdCalendarMonth, MdOutlineArrowCircleUp } from 'react-icons/md'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 import { projects } from './data/projects'
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
     const [homeShowcaseLoaded, setHomeShowcaseLoaded] = useState(false)
-    const [videoProgress, setVideoProgress] = useState(30)
+    const [videoProgress, setVideoProgress] = useState(10)
     const videoRef = useRef(null)
     const currentProject = projects[currentProjectIndex]
     const navigate = useNavigate()
@@ -36,7 +36,7 @@ const Home = () => {
             prev === 0 ? projects.length - 1 : prev - 1
         )
         setHomeShowcaseLoaded(false)
-        setVideoProgress(30)
+        setVideoProgress(10)
     }
 
     const handleNextProject = () => {
@@ -44,21 +44,21 @@ const Home = () => {
             prev === projects.length - 1 ? 0 : prev + 1
         )
         setHomeShowcaseLoaded(false)
-        setVideoProgress(30)
+        setVideoProgress(10)
     }
 
     const handleVideoTimeUpdate = () => {
         if (videoRef.current) {
             const progress = (videoRef.current.currentTime / videoRef.current.duration) * 100
-            const adjustedProgress = 30 + (progress * 0.7)
-            setVideoProgress(adjustedProgress || 30)
+            const adjustedProgress = 10 + (progress * 0.9)
+            setVideoProgress(adjustedProgress || 10)
         }
     }
 
     const handleDotClick = (index) => {
         setCurrentProjectIndex(index)
         setHomeShowcaseLoaded(false)
-        setVideoProgress(30)
+        setVideoProgress(10)
     }
 
     const projectVariants = {
@@ -84,6 +84,11 @@ const Home = () => {
         stiffness: 300,
         damping: 30,
         duration: 0.6
+    }
+
+    const handleGoogleSearch = (searchTerm) => {
+        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`
+        window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
     }
     return (
         <div className="content-container">
@@ -255,6 +260,72 @@ const Home = () => {
                         <MdCode className='tagIcon' />
                         <span>Python</span>
                     </div>
+                </div>
+            </section>
+            <section className="about-section">
+                <div className="text-container">
+                    <p className='text'>Hey, I’m <span className='bold'>Julius Grimm</span>, a <span className='bold'>15 y/o web developer</span> and <span className='bold'>UI / UX designer</span> who really likes to think things through. </p>
+                    <p className='text space'>I live in <span className='bold'>Tübingen, Germany</span>, I’m a student <span onClick={() => handleGoogleSearch('Uhland-Gymnasium Tübingen')} className='bold link'>@Uhland-Gymnasium Tübingen</span> and I recently was at an Internship <span onClick={() => handleGoogleSearch('SAP')} className='bold link'>@SAP</span> in Dresden, Germany.</p>
+                </div>
+                <div className="image-container">
+                    <div className="main-side">
+                        <img className="main" src="../public/pictures-about/figure1.jpeg" alt="Main" />
+                        <img className="side" src="../public/pictures-about/figure2.jpeg" alt="Side" />
+                    </div>
+                    <div className="row">
+                        <img className="row-img" src="../public/pictures-about/figure3.jpeg" alt="Figure 3" />
+                        <img className="row-img landscape" src="../public/pictures-about/figure4.jpeg" alt="Figure 4" />
+                        <img className="row-img" src="../public/pictures-about/figure5.jpeg" alt="Figure 5" />
+                        <img className="row-img" src="../public/pictures-about/figure6.jpeg" alt="Figure 6" />
+                        <img className="row-img" src="../public/pictures-about/figure7.jpeg" alt="Figure 7" />
+                        <img className="row-img" src="../public/pictures-about/figure8.jpeg" alt="Figure 8" />
+                    </div>
+                </div>
+                <div className="text-container">
+                    <p className='text'>I’m a tech enthusiast who <span className="bold">started coding at age 10</span> and discovered <span className="bold">design at 12 y/o</span> through tools like Figma. I love creating intuitive, <span className="bold">human-centered experiences</span> and <span className="bold">exploring new technologies</span>. In the future, I see myself designing interfaces that make <span className="bold">VR and AR</span> feel natural and seamless.</p>
+                    <p className='text space'>Besides my profound interest in technology and coding, I enjoy to <span className="bold">regularly hit the courts 🎾</span>, <span className="bold">go to the gym 🏋️</span>, <span className="bold">row 🚣</span>, <span className="bold">cook 👨‍🍳</span> for my family ❤️ and <span className="bold">play with our cat Leo 🐈</span>.</p>
+                    <p className='text space'>Thanks for stopping by and taking the time to get to know me. If you have any questions or an exciting project idea, feel free to reach out to me through my <span className="bold">socials.</span></p>
+                </div>
+                <div className="tag-container">
+                    <div className='tag'>
+                        <MdCalendarMonth className='tagIcon' />
+                        <div>
+                            <span>Last Update: </span>
+                            <span>March 2025</span>
+                        </div>
+                    </div>
+                    <div className='tag'>
+                        <MdInfoOutline className='tagIcon' />
+                        <span>© 2025 Julius Grimm</span>
+                    </div>
+                    <motion.div
+                        className='tag link'
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 17
+                        }}
+                        onClick={() => {
+                            const duration = 500; // 
+                            const start = window.scrollY;
+                            const startTime = performance.now();
+                            function scrollStep(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const ease = 1 - Math.pow(1 - progress, 3);
+                                window.scrollTo(0, start * (1 - ease));
+                                if (progress < 1) {
+                                    requestAnimationFrame(scrollStep);
+                                }
+                            }
+                            requestAnimationFrame(scrollStep);
+                        }}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        <MdOutlineArrowCircleUp className='tagIcon' />
+                    </motion.div>
                 </div>
             </section>
         </div>

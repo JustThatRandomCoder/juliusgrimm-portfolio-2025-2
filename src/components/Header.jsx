@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { MdOutlineEmail } from 'react-icons/md'
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
 import { gsap } from 'gsap'
@@ -11,6 +12,7 @@ const Header = () => {
     const containerRef = useRef(null)
     const iconsRef = useRef([])
     const profileInfoRef = useRef(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -200,7 +202,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className='profile-container'>
+            <div className='profile-container' onClick={() => navigate('/')}>
                 <img src="/profile-picture.jpeg" className='profile-picture' alt="Julius Grimm Profile" />
                 <div className='profile-information' ref={profileInfoRef}>
                     <div className='name'>Julius Grimm</div>

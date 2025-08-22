@@ -192,3 +192,32 @@ body {
     height: 1.2rem;
   }
 }
+
+p.text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--font-color);
+  font-weight: 400;
+}
+
+p.space {
+  margin-top: 2rem;
+}
+
+p.space-big {
+  margin-top: 3vh;
+}
+
+span.bold {
+  font-weight: 500;
+}
+
+span.link {
+  color: var(--font-color);
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
+  cursor: pointer;
+}
+
+span.link:hover {
+  color: var(--font-hover-color);
+}
