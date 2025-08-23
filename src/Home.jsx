@@ -298,7 +298,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="text-container">
-                    <p className='text'>I’m a tech enthusiast who <span className="bold">started coding at age 10</span> and discovered <span className="bold">design at 12 y/o</span> through tools like Figma. I love creating intuitive, <span className="bold">human-centered experiences</span> and <span className="bold">exploring new technologies</span>. In the future, I see myself designing interfaces that make <span className="bold">VR and AR</span> feel natural and seamless.</p>
+                    <p className='text'>I’m a tech enthusiast who <span className="bold">started coding at age 10</span> and discovered <span className="bold">design one year later</span> through tools like Figma. I love creating intuitive, <span className="bold">human-centered experiences</span> and <span className="bold">exploring new technologies</span>. In the future, I see myself designing interfaces that make <span className="bold">VR and AR</span> feel natural and seamless.</p>
                     <p className='text space'>Besides my profound interest in technology and coding, I enjoy to <span className="bold">regularly hit the courts 🎾</span>, <span className="bold">go to the gym 🏋️</span>, <span className="bold">row 🚣</span>, <span className="bold">cook 👨‍🍳</span> for my family ❤️ and <span className="bold">play with our cat Leo 🐈</span>.</p>
                     <p className='text space'>Thanks for stopping by and taking the time to get to know me. If you have any questions or an exciting project idea, feel free to reach out to me through my <span className="bold">socials.</span></p>
                 </div>
