@@ -756,13 +756,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/skyview/figures/figure1.png",
+                            src: "./../projects/skyview/figures/figure1.png",
                             alt: "Final Figma Sketch of SkyView"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/skyview/figures/figure2.png",
+                            src: "./../projects/skyview/figures/figure2.png",
                             alt: "Final App"
                         }
                     ]
