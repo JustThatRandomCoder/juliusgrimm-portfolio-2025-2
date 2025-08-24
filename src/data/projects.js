@@ -549,13 +549,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/festifly/figures/figure3.png",
+                            src: "./../projects/festifly/figures/figure3.png",
                             alt: "First Figma Sketch of FestiFly"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/festifly/figures/figure4.png",
+                            src: "./../projects/festifly/figures/figure4.png",
                             alt: "First concept of the website"
                         },
                         {
