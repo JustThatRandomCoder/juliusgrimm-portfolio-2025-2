@@ -285,16 +285,16 @@ const Home = () => {
                 </div>
                 <div className="image-container">
                     <div className="main-side">
-                        <img className="main" src="../public/pictures-about/figure1.jpeg" alt="Main" />
-                        <img className="side" src="../public/pictures-about/figure2.jpeg" alt="Side" />
+                        <img className="main" src="./pictures-about/figure1.jpeg" alt="Main" />
+                        <img className="side" src="./pictures-about/figure2.jpeg" alt="Side" />
                     </div>
                     <div className="row">
-                        <img className="row-img" src="../public/pictures-about/figure3.jpeg" alt="Figure 3" />
-                        <img className="row-img landscape" src="../public/pictures-about/figure4.jpeg" alt="Figure 4" />
-                        <img className="row-img" src="../public/pictures-about/figure5.jpeg" alt="Figure 5" />
-                        <img className="row-img" src="../public/pictures-about/figure6.jpeg" alt="Figure 6" />
-                        <img className="row-img" src="../public/pictures-about/figure7.jpeg" alt="Figure 7" />
-                        <img className="row-img" src="../public/pictures-about/figure8.jpeg" alt="Figure 8" />
+                        <img className="row-img" src="./pictures-about/figure3.jpeg" alt="Figure 3" />
+                        <img className="row-img landscape" src="./pictures-about/figure4.jpeg" alt="Figure 4" />
+                        <img className="row-img" src="./pictures-about/figure5.jpeg" alt="Figure 5" />
+                        <img className="row-img" src="./pictures-about/figure6.jpeg" alt="Figure 6" />
+                        <img className="row-img" src="./pictures-about/figure7.jpeg" alt="Figure 7" />
+                        <img className="row-img" src="./pictures-about/figure8.jpeg" alt="Figure 8" />
                     </div>
                 </div>
                 <div className="text-container">

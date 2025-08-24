@@ -3,8 +3,8 @@ export const projects = [
         id: 1,
         name: "Lyra",
         description: "An AI-Powered Playlist Generator",
-        logo: "../public/projects/lyra/logo.png",
-        video: "../public/projects/lyra/showcase.mp4",
+        logo: "./projects/lyra/logo.png",
+        video: "./projects/lyra/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "Currently Offline" }
@@ -84,13 +84,13 @@ export const projects = [
                         }, {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/lyra/figures/figure1.png",
+                            src: "./projects/lyra/figures/figure1.png",
                             alt: "First Figma Sketch of Lyra"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/lyra/figures/figure2.png",
+                            src: "./projects/lyra/figures/figure2.png",
                             alt: "Mobile View of Lyra"
                         }
                     ]
@@ -231,8 +231,8 @@ export const projects = [
         id: 2,
         name: "VibeVote",
         description: "A tool for managing song requests as a DJ",
-        logo: "../public/projects/vibevote/logo.png",
-        video: "../public/projects/vibevote/showcase.mp4",
+        logo: "./projects/vibevote/logo.png",
+        video: "./projects/vibevote/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "vibevote.de", url: "https://vibevote.de" }
@@ -306,13 +306,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/vibevote/figures/figure1.png",
+                            src: "./projects/vibevote/figures/figure1.png",
                             alt: "Final Figma Sketch of VibeVote"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/vibevote/figures/figure2.png",
+                            src: "./projects/vibevote/figures/figure2.png",
                             alt: "Close up of the features of VibeVote"
                         }
                     ]
@@ -339,7 +339,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "../public/projects/vibevote/figures/figure3.mp4",
+                            src: "./projects/vibevote/figures/figure3.mp4",
                             alt: "First Figma prototype of VibeVote"
                         },
                     ]
@@ -392,7 +392,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "../public/projects/vibevote/figures/figure4.mp4",
+                            src: "./projects/vibevote/figures/figure4.mp4",
                             alt: "VibeVote Promo Video"
                         }
                     ]
@@ -471,8 +471,8 @@ export const projects = [
         id: 3,
         name: "FestiFly",
         description: "An AI based tool for hosting events",
-        logo: "../public/projects/festifly/logo.png",
-        video: "../public/projects/festifly/showcase.mp4",
+        logo: "./projects/festifly/logo.png",
+        video: "./projects/festifly/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "Currently Offline" }
@@ -528,13 +528,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/festifly/figures/figure1.png",
+                            src: "./projects/festifly/figures/figure1.png",
                             alt: "First Figma Sketch of FestiFly"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/festifly/figures/figure2.png",
+                            src: "./projects/festifly/figures/figure2.png",
                             alt: "First concept of the website"
                         }
                     ]
@@ -549,7 +549,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/festifly/figures/figure3.png",
+                            src: "./projects/festifly/figures/figure3.png",
                             alt: "First Figma Sketch of FestiFly"
                         },
                         {
@@ -657,8 +657,8 @@ export const projects = [
         id: 4,
         name: "SkyView",
         description: "An open-source weather app focused on design",
-        logo: "../public/projects/skyview/logo.svg",
-        video: "../public/projects/skyview/showcase.mp4",
+        logo: "./projects/skyview/logo.svg",
+        video: "./projects/skyview/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "skyview.juliusgrimm.dev", url: "https://skyview.juliusgrimm.dev" }
@@ -756,13 +756,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/skyview/figures/figure1.png",
+                            src: "./projects/skyview/figures/figure1.png",
                             alt: "Final Figma Sketch of SkyView"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/skyview/figures/figure2.png",
+                            src: "./projects/skyview/figures/figure2.png",
                             alt: "Final App"
                         }
                     ]
