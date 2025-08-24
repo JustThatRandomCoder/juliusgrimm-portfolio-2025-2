@@ -117,7 +117,7 @@ const Header = () => {
 
     const handleMailClick = () => {
         if (isExpanded) {
-            window.open('mailto:me@juliusgrimmm.dev', '_self')
+            window.open('mailto:me@juliusgrimm.dev', '_self')
         } else {
             setIsExpanded(true)
         }
