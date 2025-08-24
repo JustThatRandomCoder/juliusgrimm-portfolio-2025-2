@@ -3,8 +3,8 @@ export const projects = [
         id: 1,
         name: "Lyra",
         description: "An AI-Powered Playlist Generator",
-        logo: "./projects/lyra/logo.png",
-        video: "./projects/lyra/showcase.mp4",
+        logo: "./../projects/lyra/logo.png",
+        video: "./../projects/lyra/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "Currently Offline" }
@@ -84,13 +84,13 @@ export const projects = [
                         }, {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/lyra/figures/figure1.png",
+                            src: "./../projects/lyra/figures/figure1.png",
                             alt: "First Figma Sketch of Lyra"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/lyra/figures/figure2.png",
+                            src: "./../projects/lyra/figures/figure2.png",
                             alt: "Mobile View of Lyra"
                         }
                     ]
