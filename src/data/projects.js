@@ -231,8 +231,8 @@ export const projects = [
         id: 2,
         name: "VibeVote",
         description: "A tool for managing song requests as a DJ",
-        logo: "./projects/vibevote/logo.png",
-        video: "./projects/vibevote/showcase.mp4",
+        logo: "./../projects/vibevote/logo.png",
+        video: "./../projects/vibevote/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "vibevote.de", url: "https://vibevote.de" }
@@ -306,13 +306,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/vibevote/figures/figure1.png",
+                            src: "./../projects/vibevote/figures/figure1.png",
                             alt: "Final Figma Sketch of VibeVote"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/vibevote/figures/figure2.png",
+                            src: "./../projects/vibevote/figures/figure2.png",
                             alt: "Close up of the features of VibeVote"
                         }
                     ]
@@ -339,7 +339,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "./projects/vibevote/figures/figure3.mp4",
+                            src: "./../projects/vibevote/figures/figure3.mp4",
                             alt: "First Figma prototype of VibeVote"
                         },
                     ]
@@ -392,7 +392,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "./projects/vibevote/figures/figure4.mp4",
+                            src: "./../projects/vibevote/figures/figure4.mp4",
                             alt: "VibeVote Promo Video"
                         }
                     ]
@@ -471,8 +471,8 @@ export const projects = [
         id: 3,
         name: "FestiFly",
         description: "An AI based tool for hosting events",
-        logo: "./projects/festifly/logo.png",
-        video: "./projects/festifly/showcase.mp4",
+        logo: "./../projects/festifly/logo.png",
+        video: "./../projects/festifly/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "Currently Offline" }
@@ -528,13 +528,13 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/festifly/figures/figure1.png",
+                            src: "./../projects/festifly/figures/figure1.png",
                             alt: "First Figma Sketch of FestiFly"
                         },
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "./projects/festifly/figures/figure2.png",
+                            src: "./../projects/festifly/figures/figure2.png",
                             alt: "First concept of the website"
                         }
                     ]
@@ -573,7 +573,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "video",
-                            src: "../public/projects/festifly/showcase.mp4",
+                            src: "./../projects/festifly/showcase.mp4",
                             alt: "Final Prototype of Festifly"
                         }
                     ]
@@ -657,8 +657,8 @@ export const projects = [
         id: 4,
         name: "SkyView",
         description: "An open-source weather app focused on design",
-        logo: "./projects/skyview/logo.svg",
-        video: "./projects/skyview/showcase.mp4",
+        logo: "./../projects/skyview/logo.svg",
+        video: "./../projects/skyview/showcase.mp4",
         tags: [
             { type: "info", icon: "MdInfoOutline" },
             { type: "link", icon: "MdLanguage", text: "skyview.juliusgrimm.dev", url: "https://skyview.juliusgrimm.dev" }
@@ -823,7 +823,7 @@ export const projects = [
                         {
                             type: "media",
                             mediaType: "image",
-                            src: "../public/projects/skyview/figures/figure3.png",
+                            src: "./../projects/skyview/figures/figure3.png",
                             alt: "Poster for presenting SkyView"
                         }
                     ]
