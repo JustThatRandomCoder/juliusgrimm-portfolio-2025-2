@@ -1,6 +1,234 @@
 export const projects = [
     {
         id: 1,
+        name: "Lyra",
+        description: "An AI-Powered Playlist Generator",
+        logo: "../public/projects/lyra/logo.png",
+        video: "../public/projects/lyra/showcase.mp4",
+        tags: [
+            { type: "info", icon: "MdInfoOutline" },
+            { type: "link", icon: "MdLanguage", text: "Currently Offline" }
+        ],
+        caseStudy: {
+            duration: "July 14 - July 24",
+            tools: [
+                { name: "Figma", icon: "MdFormatShapes", link: "https://www.figma.com/design/zkDkKZzkWxb1GAVbi9DJjI/lyra?node-id=0-1&t=gw7E9ObHN6WMxq7N-1" },
+                { name: "VS Code", icon: "MdCode" }
+            ],
+            github: {
+                url: "https://github.com/justthatrandomcoder/lyra",
+                icon: "MdGithub"
+            },
+            stack: ["React", "TypeScript", "Node.js", "CSS", "Groq API", "Spotify API", "Ngrok"],
+            description: [
+                "Lyra is a web app that generates playlists based on a user’s mood and preferred genres. Unlike static curated playlists, Lyra combines AI-driven recommendations with direct Spotify integration to create fully customized playlists with unique names and cover art.",
+            ],
+            sections: [
+                {
+                    title: "Idea",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "The idea for Lyra came from my curiosity about how AI could enhance music discovery. I noticed how often I (and friends around me) would scroll endlessly through Spotify, trying to find a playlist that really matched the vibe of the moment — whether that was “chill jazz” for studying or “happy techno” for getting energy back."
+                        },
+                    ]
+                },
+                {
+                    title: "Research & Insights",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "Before starting development, I explored how people typically generate playlists."
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Spotify itself offers playlists, but they are broad, not personalized to both mood and genre.",
+                                "Third-party apps either focus too much on manual input or require downloading an app, creating accounts, or learning a complex interface. This creates friction.",
+                                "AI-based playlist apps exist, but most don’t integrate tightly into Spotify — often they just suggest a list of songs that you still have to build manually."
+                            ]
+                        },
+                        {
+                            type: "paragraph",
+                            text: "From this research, the opportunity was clear:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Make playlist creation instant and frictionless.",
+                                "Keep the experience Spotify-native — playlists should appear directly in the user’s account.",
+                                "Add delightful details: names, cover art, smooth UI animations."
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "Ideation & Wireframing",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I broke the idea into core features:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Mood & genre selection (with optional seed artists)",
+                                "AI playlist generation (tracks, name, cover art)",
+                                "Preview inside a clean, animated UI",
+                                "One-click export to Spotify"
+                            ]
+                        },
+                        {
+                            type: "paragraph",
+                            text: "I sketched the flow on paper and then moved to Figma for wireframes, focusing on clarity and simplicity: minimal steps for the user, strong visual appeal, and smooth transitions between stages."
+                        }, {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/lyra/figures/figure1.png",
+                            alt: "First Figma Sketch of Lyra"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "image",
+                            src: "../public/projects/lyra/figures/figure2.png",
+                            alt: "Mobile View of Lyra"
+                        }
+                    ]
+                },
+                {
+                    title: "Development",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I built Lyra as a full-stack application:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Frontend: Vite + React, styled with a focus on smooth animations and responsive layouts",
+                                "Backend: Node.js server handling API requests and OAuth logic",
+                                "AI Integration: Groq API generates playlists, names, and cover art",
+                                "Fallback System: Curated track database used when AI responses are unavailable",
+                                "Spotify Integration: OAuth 2.0 for authentication, playlist creation in the user’s account"
+                            ]
+                        },
+                        {
+                            type: "paragraph",
+                            text: "This combination made the experience fluid, reliable, and enjoyable to use."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "I used GitHub for version control and collaboration, ensuring smooth integration of our work."
+                        },
+                    ]
+                },
+                {
+                    title: "Challenges & Learnings",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "The biggest technical challenge came with Spotify authentication."
+                        },
+                        {
+                            type: "indent",
+                            text: "Problem: Spotify does not allow localhost as a callback address for authentication. This broke the OAuth flow during local development."
+                        },
+                        {
+                            type: "indent",
+                            text: "Solution: I used ngrok to expose the local backend to the web. This created a secure, public URL that I could set as a valid redirect URI in the Spotify Developer Dashboard."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "To make this easier, I added:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "ngrok.yml for configuration",
+                                "update-ngrok-url.js script to refresh redirect URIs",
+                                "NGROK_SETUP.md guide for setup"
+                            ]
+                        },
+                        {
+                            type: "paragraph",
+                            text: "This ensured smooth local development without deploying to staging."
+                        }
+                    ]
+                },
+                {
+                    title: "Outcome",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "Lyra turned the idea of “AI-powered music discovery” into a working product. It generates playlists based on moods and genres, adds names and cover art, and integrates directly with Spotify. While it won’t be developed further, it stands as a complete showcase project."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Lyra successfully delivered:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "AI-powered playlists based on mood and genre",
+                                "Automatic playlist names and cover art",
+                                "Spotify integration that creates playlists directly in the user’s account",
+                                "A fallback system for when AI fails",
+                                "A polished, animated UI that works across devices"
+                            ]
+                        },
+                    ]
+                },
+                {
+                    title: "What I learned",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "Through Lyra I deepened my understanding of OAuth and authentication flows, learned how to use ngrok effectively in development, and saw how much polish in UI and user flow can elevate a project."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "...but in a nutshell, I learned:"
+                        },
+                        {
+                            type: "indent",
+                            text: "Technical: Deeper understanding of OAuth, authentication flows, and tunneling with ngrok"
+                        },
+                        {
+                            type: "indent",
+                            text: "Design: How much UI polish (animations, clean layout) can shape the perception of a project"
+                        },
+                        {
+                            type: "indent",
+                            text: "Product: Building fallback systems improves reliability and user trust"
+                        },
+                        {
+                            type: "indent",
+                            text: "Process: Automating configuration and documenting setup makes onboarding much smoother"
+                        },
+                    ]
+                },
+                {
+                    title: "Next Steps",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "Lyra will remain online as a showcase project but will not be further developed."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "For now, Lyra stands as a complete showcase of integrating AI with Spotify, and a personal milestone in tackling OAuth, full-stack development, and product polish."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "If you have any questions or want to know more about the project, feel free to contact me via mail or on my socials"
+                        }
+                    ]
+                },
+            ]
+        }
+    },
+    {
+        id: 2,
         name: "VibeVote",
         description: "A tool for managing song requests as a DJ",
         logo: "../public/projects/vibevote/logo.png",
@@ -240,7 +468,7 @@ export const projects = [
         }
     },
     {
-        id: 2,
+        id: 3,
         name: "FestiFly",
         description: "An AI based tool for hosting events",
         logo: "../public/projects/festifly/logo.png",
@@ -426,7 +654,7 @@ export const projects = [
         }
     },
     {
-        id: 3,
+        id: 4,
         name: "SkyView",
         description: "An open-source weather app focused on design",
         logo: "../public/projects/skyview/logo.svg",
