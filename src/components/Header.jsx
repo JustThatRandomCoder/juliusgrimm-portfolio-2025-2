@@ -12,6 +12,7 @@ const Header = () => {
     const containerRef = useRef(null)
     const iconsRef = useRef([])
     const profileInfoRef = useRef(null)
+    const nameRef = useRef(null)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -29,28 +30,33 @@ const Header = () => {
 
     useEffect(() => {
         const checkSpace = () => {
-            const screenWidth = window.innerWidth
-            let minRequiredWidth
-
-            if (screenWidth < 480) {
-                minRequiredWidth = 400
-            } else if (screenWidth < 768) {
-                minRequiredWidth = 500
-            } else {
-                minRequiredWidth = 600
+            const nameEl = nameRef.current;
+            const socialsBar = containerRef.current;
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 640 && nameEl && socialsBar && isExpanded) {
+                const nameRect = nameEl.getBoundingClientRect();
+                const socialsRect = socialsBar.getBoundingClientRect();
+                const isOverlapping = socialsRect.right > nameRect.left;
+                if (isOverlapping && !shouldHideProfile) {
+                    setShouldHideProfile(true);
+                } else if (!isOverlapping && shouldHideProfile) {
+                    setShouldHideProfile(false);
+                }
+            } else if (shouldHideProfile && (screenWidth >= 768 || !isExpanded || !nameEl || !socialsBar)) {
+                setShouldHideProfile(false);
             }
-
-            const newShouldHide = screenWidth < minRequiredWidth && isExpanded
-
-            if (newShouldHide !== shouldHideProfile) {
-                setShouldHideProfile(newShouldHide)
-            }
+        };
+        checkSpace();
+        window.addEventListener('resize', checkSpace);
+        const observer = new MutationObserver(checkSpace);
+        if (containerRef.current) {
+            observer.observe(containerRef.current, { attributes: true, attributeFilter: ['style'] });
         }
-
-        checkSpace()
-        window.addEventListener('resize', checkSpace)
-        return () => window.removeEventListener('resize', checkSpace)
-    }, [isExpanded, shouldHideProfile])
+        return () => {
+            window.removeEventListener('resize', checkSpace);
+            observer.disconnect();
+        };
+    }, [isExpanded, shouldHideProfile]);
 
     useEffect(() => {
         const profileInfo = profileInfoRef.current
@@ -205,7 +211,7 @@ const Header = () => {
             <div className='profile-container' onClick={() => navigate('/')}>
                 <img src="/profile-picture.jpeg" className='profile-picture' alt="Julius Grimm Profile" />
                 <div className='profile-information' ref={profileInfoRef}>
-                    <div className='name'>Julius Grimm</div>
+                    <div className='name' ref={nameRef}>Julius Grimm</div>
                     <div className='username'>@julius_gr_</div>
                 </div>
             </div>
