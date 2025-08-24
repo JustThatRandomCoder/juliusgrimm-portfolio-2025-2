@@ -656,7 +656,7 @@ export const projects = [
     {
         id: 4,
         name: "SkyView",
-        description: "A user focused open-source weather app",
+        description: "A user-focused open-source weather app",
         logo: "./../projects/skyview/logo.svg",
         video: "./../projects/skyview/showcase.mp4",
         tags: [
