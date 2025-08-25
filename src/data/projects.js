@@ -118,7 +118,7 @@ export const projects = [
                         },
                         {
                             type: "paragraph",
-                            text: "I used GitHub for version control and collaboration, ensuring smooth integration of our work."
+                            text: "I used GitHub for version control and collaboration, ensuring smooth integration of my work."
                         },
                     ]
                 },
