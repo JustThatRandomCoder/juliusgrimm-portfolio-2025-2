@@ -360,6 +360,11 @@
         justify-content: center;
     }
 
+    .project-links>.tag {
+        width: 100%;
+        justify-content: center;
+    }
+
     .case-study-head .project-links {
         width: 100%;
         margin-top: 0;
