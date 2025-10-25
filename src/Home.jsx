@@ -281,7 +281,8 @@ const Home = () => {
             <section className="about-section">
                 <div className="text-container">
                     <p className='text'>Hey, I’m <span className='bold'>Julius Grimm</span>, a <span className='bold'>15 y/o web developer</span> and <span className='bold'>UI / UX designer</span> who really likes to think things through. </p>
-                    <p className='text space'>I live in <span className='bold'>Tübingen, Germany</span>, I’m a student <span onClick={() => handleGoogleSearch('Uhland-Gymnasium Tübingen')} className='bold link'>@Uhland-Gymnasium Tübingen</span> and I recently was at an Internship <span onClick={() => handleGoogleSearch('SAP')} className='bold link'>@SAP</span> in Dresden, Germany.</p>
+                    <p className='text space'>I live in <span className='bold'>Tübingen, Germany</span>, I’m a student <span onClick={() => handleGoogleSearch('Uhland-Gymnasium Tübingen')} className='bold link'>@Uhland-Gymnasium Tübingen</span>.</p>
+                    <p className='text space'>Previously Intern <span onClick={() => handleGoogleSearch('SAP')} className='bold link'>@SAP</span> in Dresden, Germany & <span onClick={() => handleGoogleSearch('Optocycle')} className='bold link'>@Optocycle</span> in Tübingen, Germany.</p>
                 </div>
                 <div className="image-container">
                     <div className="main-side">
