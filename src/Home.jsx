@@ -313,7 +313,7 @@ const Home = () => {
                     </div>
                     <div className='tag'>
                         <MdInfoOutline className='tagIcon' />
-                        <span>© 2025 Julius Grimm</span>
+                        <span>© {new Date().getFullYear()} Julius Grimm</span>
                     </div>
                     <motion.div
                         className='tag link'
