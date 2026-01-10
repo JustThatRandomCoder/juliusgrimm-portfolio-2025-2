@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 import { projects } from './data/projects'
 import { useNavigate } from 'react-router-dom'
+import { aboutText } from './data/aboutText'
 
 
 const Home = () => {
@@ -105,6 +106,13 @@ const Home = () => {
     const handleGoogleSearch = (searchTerm) => {
         const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`
         window.open(googleSearchUrl, '_blank', 'noopener,noreferrer')
+    }
+    const renderSegments = (segments) => {
+        return segments.map((seg, idx) => {
+            if (typeof seg === 'string') return seg
+            if (seg && seg.type === 'bold') return <span key={idx} className='bold'>{seg.text}</span>
+            return null
+        })
     }
     return (
         <div className="content-container">
@@ -299,9 +307,9 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="text-container">
-                    <p className='text'>I’m a tech enthusiast who <span className="bold">started coding at age 10</span> and discovered <span className="bold">design one year later</span> through tools like Figma. I love creating intuitive, <span className="bold">human-centered experiences</span> and <span className="bold">exploring new technologies</span>. In the future, I see myself designing interfaces that make <span className="bold">VR and AR</span> feel natural and seamless.</p>
-                    <p className='text space'>Besides my profound interest in technology and coding, I enjoy to <span className="bold">regularly hit the courts 🎾</span>, <span className="bold">go to the gym 🏋️</span>, <span className="bold">row 🚣</span>, <span className="bold">cook 👨‍🍳</span> for my family ❤️ and <span className="bold">play with our cat Leo 🐈</span>.</p>
-                    <p className='text space'><span className='bold'>Thanks for stopping by</span>! I’m <span className='bold'>always excited to collaborate</span>, whether it’s <span className='bold'>building websites</span>, <span className='bold'>tackling fresh ideas</span>, or <span className='bold'>joining forces on bigger projects</span>. If you’re looking for someone <span className='bold'>curious, creative, and eager to bring value to your team</span>, feel free to connect with me through my <span className="bold">socials</span>—I’d love to chat.</p>
+                    <p className='text'>{renderSegments(aboutText.paragraph1)}</p>
+                    <p className='text space'>{renderSegments(aboutText.paragraph2)}</p>
+                    <p className='text space'>{renderSegments(aboutText.paragraph3)}</p>
                 </div>
                 <div className="tag-container">
                     <div className='tag'>
