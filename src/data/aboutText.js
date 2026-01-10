@@ -19,7 +19,7 @@ export const aboutText = {
         { type: "bold", text: "go to the gym 🏋️" },
         ", ",
         { type: "bold", text: "cook 👨‍🍳" },
-        " for me or my family ❤️ and ",
+        " for me or my family ❤️ and to ",
         { type: "bold", text: "play with our cat Leo 🐈" },
         "."
     ],
