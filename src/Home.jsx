@@ -16,6 +16,21 @@ const Home = () => {
     const videoRef = useRef(null)
     const currentProject = projects[currentProjectIndex]
     const navigate = useNavigate()
+
+    const calculateAge = (birthDate) => {
+        const today = new Date()
+        const birth = new Date(birthDate)
+        let age = today.getFullYear() - birth.getFullYear()
+        const monthDiff = today.getMonth() - birth.getMonth()
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--
+        }
+
+        return age
+    }
+
+    const myAge = calculateAge('2010-03-02')
     useEffect(() => {
         fetch('https://api.github.com/repos/JustThatRandomCoder/juliusgrimm-portfolio-2025-2/commits?per_page=1')
             .then(res => res.json())
@@ -288,10 +303,10 @@ const Home = () => {
             </section>
             <section className="about-section">
                 <div className="text-container">
-                    <p className='text'>Hey, I’m <span className='bold'>Julius Grimm</span>, a <span className='bold'>15 y/o web developer</span> and <span className='bold'>UI / UX designer</span> who really likes to think things through. </p>
+                    <p className='text'>Hey, I'm <span className='bold'>Julius Grimm</span>, a <span className='bold'>{myAge} y/o web developer</span> and <span className='bold'>UI / UX designer</span> who really likes to think things through. </p>
                     <p className='text space'>I live in <span className='bold'>Tübingen, Germany</span> and I’m a student <span onClick={() => handleGoogleSearch('Uhland-Gymnasium Tübingen')} className='bold link'>@Uhland-Gymnasium Tübingen</span>.</p>
                     <p className='text space'>Previously Intern <span onClick={() => handleGoogleSearch('SAP')} className='bold link'>@SAP</span> in Dresden, Germany & <span onClick={() => handleGoogleSearch('Optocycle')} className='bold link'>@Optocycle</span> in Tübingen, Germany.</p>
-                </div>
+                    <p className='text space'>Currently working on my web design studio <span onClick={() => window.open('https://levo-studio.com', '_blank')} className='bold link'>@Levo Studio</span>.</p>                </div>
                 <div className="image-container">
                     <div className="main-side">
                         <img className="main" src="./pictures-about/figure1.jpeg" alt="Main" />
