@@ -947,9 +947,9 @@ export const projects = [
                         },
                         {
                             type: "media",
-                            mediaType: "video",
-                            src: "./../projects/vibevote-2/showcase.mp4",
-                            alt: "VibeVote 2.0 Showcase"
+                            mediaType: "image",
+                            src: "./../projects/vibevote-2/figures/figure1.png",
+                            alt: "VibeVote 2.0 Wireframing Figure"
                         }
                     ]
                 },
@@ -1004,11 +1004,22 @@ export const projects = [
                     content: [
                         {
                             type: "paragraph",
-                            text: "To launch VibeVote 2.0, I created dedicated promotion content on YouTube: one long-form feature walkthrough and one short promo clip to quickly communicate the value of the product. YouTube channel: https://www.youtube.com/results?search_query=VibeVote"
+                            text: "To launch VibeVote 2.0, I created dedicated promotion content on YouTube and used the channel to present features and product updates."
+                        },
+                        {
+                            type: "link",
+                            text: "YouTube Channel: @vibevotegermany",
+                            url: "https://www.youtube.com/@vibevotegermany"
+                        },
+                        {
+                            type: "media",
+                            mediaType: "video",
+                            src: "./../projects/vibevote-2/figures/figure2.mp4",
+                            alt: "VibeVote 2.0 Promotion Video"
                         },
                         {
                             type: "paragraph",
-                            text: "Feature walkthrough: https://www.youtube.com/results?search_query=VibeVote+2.0+full+video | Promo short: https://www.youtube.com/results?search_query=VibeVote+2.0+short | Live app: https://vibevote.de"
+                            text: "Live app: https://vibevote.de"
                         }
                     ]
                 },
