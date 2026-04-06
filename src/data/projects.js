@@ -357,7 +357,7 @@ export const projects = [
                         },
                         {
                             type: "paragraph",
-                            text: "At each event (party) a unique QR code and poster are generated using a Python library. Guests scan the code, submit their song via a simple form and the request appears live on the DJ’s dashboard. Everything runs on a Flask web server and is hosted at vibevote.de"
+                            text: "At each event (party) a unique QR code and poster are generated using a Python library. Guests scan the code, submit their song via a simple form and the request appears live on the DJ’s dashboard. Everything runs on a Flask web server and is hosted at https://vibevote.de"
                         },
                     ]
                 },
@@ -402,7 +402,7 @@ export const projects = [
                     content: [
                         {
                             type: "paragraph",
-                            text: "VibeVote turned a chaotic paper-based request system into a smooth digital experience. It’s now hosted live at vibevote.de and can be used at parties, school events, or even professional DJ gigs. It’s been a fun and challenging solo build — one that blends utility with a simple and intuitive user experience."
+                            text: "VibeVote turned a chaotic paper-based request system into a smooth digital experience. It’s now hosted live at https://vibevote.de and can be used at parties, school events, or even professional DJ gigs. It’s been a fun and challenging solo build — one that blends utility with a simple and intuitive user experience."
                         },
                         {
                             type: "paragraph",
@@ -452,7 +452,7 @@ export const projects = [
                     content: [
                         {
                             type: "paragraph",
-                            text: "VibeVote will remain online and fully functional at vibevote.de, ready to be used at events and parties. However, I don't plan to add new features in the near future. Right now I'm building new projects and continue to grow my skills as a developer and designer."
+                            text: "VibeVote will remain online and fully functional at https://vibevote.de, ready to be used at events and parties. However, I don't plan to add new features in the near future. Right now I'm building new projects and continue to grow my skills as a developer and designer."
                         },
                         {
                             type: "paragraph",
@@ -885,6 +885,188 @@ export const projects = [
                             type: "paragraph",
                             text: "If you have any questions or want to know more about the project, feel free to contact me via mailor on my socials"
                         },
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        id: 5,
+        name: "VibeVote 2.0",
+        description: "Live song requests, rebuilt for speed and control",
+        logo: "./../projects/vibevote-2/logo.png",
+        video: "./../projects/vibevote-2/showcase.mp4",
+        tags: [
+            { type: "info", icon: "MdInfoOutline" },
+            { type: "link", icon: "MdLanguage", text: "vibevote.de", url: "https://vibevote.de" }
+        ],
+        caseStudy: {
+            duration: "October 2025 - March 2026",
+            tools: [
+                { name: "Figma", icon: "MdFormatShapes" },
+                { name: "VS Code", icon: "MdCode" }
+            ],
+            stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Better Auth"],
+            description: [
+                "VibeVote 2.0 is the next generation of VibeVote, a web app for managing live song requests at events. A host or DJ creates a party, receives a unique party URL and QR code, and shares it with guests. Guests scan, submit songs instantly, and requests appear in a live dashboard where the host can review, moderate, and remove entries.",
+                "The new version focuses on blazing-fast performance, an improved design system, and stronger control for DJs during high-pressure live events."
+            ],
+            sections: [
+                {
+                    title: "Idea",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote 2.0 started as a full rebuild of the original VibeVote concept: keep song requests simple for guests while giving DJs full control in real-time. The goal was clear: improve speed, improve usability, and make the platform production-ready for bigger events."
+                        }
+                    ]
+                },
+                {
+                    title: "Research & Insights",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "The most important product insight was that guest and DJ workflows are very different. Guests need a frictionless request experience in seconds, while DJs need high-confidence moderation tools that work reliably under pressure."
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Guests needed fast song discovery with search that feels like Spotify or Apple Music.",
+                                "DJs needed fewer clicks and faster moderation actions in the dashboard.",
+                                "Security and account/session visibility became critical for real-world deployment."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "Ideation & Wireframing",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "I redesigned key user flows from scratch and streamlined the interface around speed. Every screen was optimized for clarity, responsiveness, and reduced interaction cost."
+                        },
+                        {
+                            type: "media",
+                            mediaType: "video",
+                            src: "./../projects/vibevote-2/showcase.mp4",
+                            alt: "VibeVote 2.0 Showcase"
+                        }
+                    ]
+                },
+                {
+                    title: "Development",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "The new architecture and UI were focused on performance and reliability. Requesters can now search songs with autocomplete for title, cover, and artist to find tracks much faster."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "VibeVote 2.0 also introduces major feature upgrades:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Much faster requester flow with music-like search autocomplete",
+                                "Refined DJ dashboard UX for quicker moderation decisions",
+                                "Improved authentication and security with Better Auth",
+                                "Session management in settings with active sessions and remote logout",
+                                "Party dashboard sharing and multi-user collaboration on one party",
+                                "Live party deactivation to keep control during very busy moments",
+                                "Custom domain support for party dashboards"
+                            ]
+                        },
+                        {
+                            type: "paragraph",
+                            text: "The app is live at https://vibevote.de and is built for DJs, weddings, private parties, and clubs where speed and room control matter."
+                        }
+                    ]
+                },
+                {
+                    title: "Challenges & Learnings",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "The biggest challenge was shipping the product in a production-ready state with a large codebase and a tight timeline. Every feature had to be stable, connected, and tested end-to-end before launch."
+                        },
+                        {
+                            type: "indent",
+                            text: "Challenge: Coordinating a broad feature set without compromising reliability under time pressure."
+                        },
+                        {
+                            type: "indent",
+                            text: "Learning: Shipping quality at speed depends on structure, prioritization, and disciplined release readiness checks."
+                        }
+                    ]
+                },
+                {
+                    title: "Promotion & Marketing",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "To launch VibeVote 2.0, I created dedicated promotion content on YouTube: one long-form feature walkthrough and one short promo clip to quickly communicate the value of the product. YouTube channel: https://www.youtube.com/results?search_query=VibeVote"
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Feature walkthrough: https://www.youtube.com/results?search_query=VibeVote+2.0+full+video | Promo short: https://www.youtube.com/results?search_query=VibeVote+2.0+short | Live app: https://vibevote.de"
+                        }
+                    ]
+                },
+                {
+                    title: "Outcome",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote 2.0 turned the original concept into a faster, more scalable, and production-ready platform. It now gives DJs stronger control, guests a better request experience, and teams the ability to collaborate on events in real-time."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "The final release delivered:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Blazing-fast performance and improved UX across the app",
+                                "Autocomplete song search with title, cover, and artist context",
+                                "Advanced session security and device management",
+                                "Collaboration and shareable dashboard workflows",
+                                "Live control tools and custom-domain support for professional usage"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "What I learned",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote 2.0 was a major product and engineering milestone. It reinforced how important architecture, UX detail, and operational discipline are when shipping a high-speed product in a real-world event context."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "Key learnings from this version:"
+                        },
+                        {
+                            type: "bullets",
+                            items: [
+                                "Performance improvements create direct product value in live scenarios",
+                                "Security and session visibility significantly increase user trust",
+                                "Well-structured workflows are essential when shipping large codebases quickly"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    title: "Next Steps",
+                    content: [
+                        {
+                            type: "paragraph",
+                            text: "VibeVote 2.0 is now the active version and will continue to evolve with additional quality-of-life improvements for DJs and guests."
+                        },
+                        {
+                            type: "paragraph",
+                            text: "For now, the focus remains on reliability, product polish, and scaling usage in real event environments."
+                        }
                     ]
                 }
             ]

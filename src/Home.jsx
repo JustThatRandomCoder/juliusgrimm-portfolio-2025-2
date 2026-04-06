@@ -9,13 +9,19 @@ import { aboutText } from './data/aboutText'
 
 
 const Home = () => {
+    const displayedProjects = [...projects].sort((a, b) => {
+        if (a.name === 'VibeVote 2.0') return -1
+        if (b.name === 'VibeVote 2.0') return 1
+        return 0
+    })
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
     const [homeShowcaseLoaded, setHomeShowcaseLoaded] = useState(false)
     const [videoProgress, setVideoProgress] = useState(10)
     const [lastUpdate, setLastUpdate] = useState('...')
     const videoRef = useRef(null)
-    const currentProject = projects[currentProjectIndex]
+    const currentProject = displayedProjects[currentProjectIndex]
     const navigate = useNavigate()
+    const isVideoFile = (path) => /\.(mp4|webm|ogg)$/i.test(path)
 
     const calculateAge = (birthDate) => {
         const today = new Date()
@@ -65,7 +71,7 @@ const Home = () => {
 
     const handlePreviousProject = () => {
         setCurrentProjectIndex((prev) =>
-            prev === 0 ? projects.length - 1 : prev - 1
+            prev === 0 ? displayedProjects.length - 1 : prev - 1
         )
         setHomeShowcaseLoaded(false)
         setVideoProgress(10)
@@ -73,7 +79,7 @@ const Home = () => {
 
     const handleNextProject = () => {
         setCurrentProjectIndex((prev) =>
-            prev === projects.length - 1 ? 0 : prev + 1
+            prev === displayedProjects.length - 1 ? 0 : prev + 1
         )
         setHomeShowcaseLoaded(false)
         setVideoProgress(10)
@@ -221,24 +227,32 @@ const Home = () => {
                                 exit="exit"
                                 transition={transition}
                             >
-                                <video
-                                    ref={videoRef}
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    preload="auto"
-                                    onTimeUpdate={handleVideoTimeUpdate}
-                                    onLoadedData={() => setVideoProgress(0)}
-                                >
-                                    <source src={currentProject.video} type="video/mp4" />
-                                </video>
+                                {isVideoFile(currentProject.video) ? (
+                                    <video
+                                        ref={videoRef}
+                                        autoPlay
+                                        muted
+                                        loop
+                                        playsInline
+                                        preload="auto"
+                                        onTimeUpdate={handleVideoTimeUpdate}
+                                        onLoadedData={() => setVideoProgress(0)}
+                                    >
+                                        <source src={currentProject.video} type="video/mp4" />
+                                    </video>
+                                ) : (
+                                    <img
+                                        src={currentProject.video}
+                                        alt={`${currentProject.name} Showcase`}
+                                        onLoad={() => setVideoProgress(100)}
+                                    />
+                                )}
                             </motion.div>
                         </AnimatePresence>
                     </div>
                 </div>
                 <div className="project-indicators">
-                    {projects.map((_, index) => (
+                    {displayedProjects.map((_, index) => (
                         <motion.div
                             key={index}
                             className={`project-indicator ${index === currentProjectIndex ? 'active' : ''}`}

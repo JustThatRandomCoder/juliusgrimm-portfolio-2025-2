@@ -11,6 +11,7 @@ const CaseStudie = () => {
     const { projectName } = useParams()
     const project = projects.find(p => p.name.toLowerCase() === projectName?.toLowerCase())
     const [showcaseLoaded, setShowcaseLoaded] = useState(false)
+    const isVideoFile = (path) => /\.(mp4|webm|ogg)$/i.test(path)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -18,7 +19,7 @@ const CaseStudie = () => {
         }, 3000)
 
         return () => clearTimeout(timer)
-    }, [project.id])
+    }, [project?.id])
 
     if (!project) {
         return (
@@ -89,6 +90,19 @@ const CaseStudie = () => {
                     <p key={index} className="case-study-paragraph">
                         {contentItem.text}
                     </p>
+                )
+
+            case 'link':
+                return (
+                    <a
+                        key={index}
+                        className="case-study-link"
+                        href={contentItem.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {contentItem.text}
+                    </a>
                 )
 
             case 'indent':
@@ -275,19 +289,27 @@ const CaseStudie = () => {
                                     {!showcaseLoaded && (
                                         <div className="skeleton" style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1 }}></div>
                                     )}
-                                    <video
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                        preload="metadata"
-                                        poster={project.video.replace('.mp4', '-thumbnail.jpg')}
-                                        onLoadedMetadata={() => setShowcaseLoaded(true)}
-                                        onCanPlay={() => setShowcaseLoaded(true)}
-                                        style={{ position: 'relative', zIndex: 2 }}
-                                    >
-                                        <source src={project.video} type="video/mp4" />
-                                    </video>
+                                    {isVideoFile(project.video) ? (
+                                        <video
+                                            autoPlay
+                                            muted
+                                            loop
+                                            playsInline
+                                            preload="metadata"
+                                            poster={project.video.replace('.mp4', '-thumbnail.jpg')}
+                                            onLoadedMetadata={() => setShowcaseLoaded(true)}
+                                            onCanPlay={() => setShowcaseLoaded(true)}
+                                            style={{ position: 'relative', zIndex: 2 }}
+                                        >
+                                            <source src={project.video} type="video/mp4" />
+                                        </video>
+                                    ) : (
+                                        <img
+                                            src={project.video}
+                                            alt={`${project.name} Showcase`}
+                                            onLoad={() => setShowcaseLoaded(true)}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>
