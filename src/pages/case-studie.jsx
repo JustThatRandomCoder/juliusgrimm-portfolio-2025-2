@@ -12,6 +12,10 @@ const CaseStudie = () => {
     const project = projects.find(p => p.name.toLowerCase() === projectName?.toLowerCase())
     const [showcaseLoaded, setShowcaseLoaded] = useState(false)
     const isVideoFile = (path) => /\.(mp4|webm|ogg)$/i.test(path)
+    const resolveAssetPath = (path) => {
+        if (!path) return path
+        return path.startsWith('./../') ? path.replace(/^\.\/\.\./, '') : path
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -34,6 +38,7 @@ const CaseStudie = () => {
     }
 
     const { caseStudy } = project
+    const projectVideoSrc = resolveAssetPath(project.video)
 
     const getIcon = (iconName) => {
         const iconMap = {
@@ -122,12 +127,14 @@ const CaseStudie = () => {
                 )
 
             case 'media':
+                {
+                    const resolvedSrc = resolveAssetPath(contentItem.src)
                 if (contentItem.mediaType === 'image') {
                     return (
                         <MediaWithSkeleton
                             key={index}
                             type="image"
-                            src={contentItem.src}
+                            src={resolvedSrc}
                             alt={contentItem.alt}
                         />
                     )
@@ -136,12 +143,13 @@ const CaseStudie = () => {
                         <MediaWithSkeleton
                             key={index}
                             type="video"
-                            src={contentItem.src}
+                            src={resolvedSrc}
                             alt={contentItem.alt}
                         />
                     )
                 }
                 break
+                }
 
             default:
                 return null
@@ -289,23 +297,24 @@ const CaseStudie = () => {
                                     {!showcaseLoaded && (
                                         <div className="skeleton" style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, zIndex: 1 }}></div>
                                     )}
-                                    {isVideoFile(project.video) ? (
+                                    {isVideoFile(projectVideoSrc) ? (
                                         <video
+                                            key={projectVideoSrc}
                                             autoPlay
                                             muted
                                             loop
                                             playsInline
                                             preload="metadata"
-                                            poster={project.video.replace('.mp4', '-thumbnail.jpg')}
+                                            poster={projectVideoSrc.replace('.mp4', '-thumbnail.jpg')}
                                             onLoadedMetadata={() => setShowcaseLoaded(true)}
                                             onCanPlay={() => setShowcaseLoaded(true)}
                                             style={{ position: 'relative', zIndex: 2 }}
                                         >
-                                            <source src={project.video} type="video/mp4" />
+                                            <source src={projectVideoSrc} type="video/mp4" />
                                         </video>
                                     ) : (
                                         <img
-                                            src={project.video}
+                                            src={projectVideoSrc}
                                             alt={`${project.name} Showcase`}
                                             onLoad={() => setShowcaseLoaded(true)}
                                         />

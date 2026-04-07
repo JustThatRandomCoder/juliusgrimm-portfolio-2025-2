@@ -906,7 +906,7 @@ export const projects = [
                 { name: "Figma", icon: "MdFormatShapes" },
                 { name: "VS Code", icon: "MdCode" }
             ],
-            stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Better Auth"],
+            stack: ["Next.js", "TypeScript", "MongoDB", "Better Auth"],
             description: [
                 "VibeVote 2.0 is the next generation of VibeVote, a web app for managing live song requests at events. A host or DJ creates a party, receives a unique party URL and QR code, and shares it with guests. Guests scan, submit songs instantly, and requests appear in a live dashboard where the host can review, moderate, and remove entries.",
                 "The new version focuses on blazing-fast performance, an improved design system, and stronger control for DJs during high-pressure live events."

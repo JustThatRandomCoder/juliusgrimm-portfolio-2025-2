@@ -22,6 +22,10 @@ const Home = () => {
     const currentProject = displayedProjects[currentProjectIndex]
     const navigate = useNavigate()
     const isVideoFile = (path) => /\.(mp4|webm|ogg)$/i.test(path)
+    const resolveAssetPath = (path) => {
+        if (!path) return path
+        return path.startsWith('./../') ? path.replace(/^\.\/\.\./, '') : path
+    }
 
     const calculateAge = (birthDate) => {
         const today = new Date()
@@ -98,6 +102,8 @@ const Home = () => {
         setHomeShowcaseLoaded(false)
         setVideoProgress(10)
     }
+
+    const currentVideoSrc = resolveAssetPath(currentProject.video)
 
     const projectVariants = {
         enter: {
@@ -227,8 +233,9 @@ const Home = () => {
                                 exit="exit"
                                 transition={transition}
                             >
-                                {isVideoFile(currentProject.video) ? (
+                                {isVideoFile(currentVideoSrc) ? (
                                     <video
+                                        key={currentVideoSrc}
                                         ref={videoRef}
                                         autoPlay
                                         muted
@@ -238,11 +245,11 @@ const Home = () => {
                                         onTimeUpdate={handleVideoTimeUpdate}
                                         onLoadedData={() => setVideoProgress(0)}
                                     >
-                                        <source src={currentProject.video} type="video/mp4" />
+                                        <source src={currentVideoSrc} type="video/mp4" />
                                     </video>
                                 ) : (
                                     <img
-                                        src={currentProject.video}
+                                        src={currentVideoSrc}
                                         alt={`${currentProject.name} Showcase`}
                                         onLoad={() => setVideoProgress(100)}
                                     />
