@@ -2,7 +2,7 @@
 
 > **Personal Portfolio Website** – Developer & UI/UX Designer
 
-🌐 **Live Portfolio:** [juliusgrimm.dev](https://juliusgrimm.dev)
+🌐 **Live Portfolio:** [2025.juliusgrimm.dev](https://2025.juliusgrimm.dev)
 
 Welcome to my portfolio! This site showcases my work, skills, and design philosophy as a developer and UI/UX designer. Built with **React** and **Vite** for blazing-fast performance and modern development experience.
 
